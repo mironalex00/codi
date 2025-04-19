@@ -25,8 +25,10 @@
 	#pragma endregion
 	#pragma region Global Macros
 	#define printlnerr(fmt, ...) ((void)0)
-	#define println(fmt, ...)						\
+	#define print(fmt, ...)							\
 			print_f(stdout, _T(fmt), ##__VA_ARGS__##)
+	#define println(fmt, ...)						\
+			print_f(stdout, _T(fmt) _T("\n"), ##__VA_ARGS__##)
 	#pragma endregion
 	#if defined(_UNICODE) || defined(UNICODE)
 		#undef init_utf16_std  
