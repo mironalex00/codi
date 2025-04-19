@@ -41,7 +41,7 @@ typedef struct	EventListener {
 #pragma region  CLIdefinitions
 typedef struct	Option {
 	char key;
-	char* desc;
+	const char* desc;
 } Option;
 typedef struct ExitConfig {
 	const char* desc = "Salir del programa";
@@ -50,7 +50,7 @@ typedef struct ExitConfig {
 	BOOL		stop;
 } ExitConfig;
 typedef struct	Menu {
-	char* title;
+	const char* title;
 	std::vector<Option> opts;
 } Menu;
 typedef struct	CLIMenu : Menu {
@@ -61,6 +61,7 @@ typedef struct	CLIMenu : Menu {
 		.size = sizeof(int[4]) / sizeof(int),
 		.stop = FALSE
 	};
+	EventListener* listeners = NULL;
 } CLIMenu;
 #pragma endregion
 
@@ -73,7 +74,7 @@ void			CliStopListener(void);
 #pragma region  CLI Screen
 void			CliClearRegion(const Coordinates& coords, const ScreenVolume& volume);
 void			CliGotoXY(const Coordinates& coords);
-void			CliPrintMenu(const CLIMenu& menu);
+void			CliPrintMenu(const CLIMenu* menu);
 #pragma endregion
 #pragma region  CLI Helpers
 ScreenVolume	CliGetVolume();
