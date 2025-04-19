@@ -13,22 +13,33 @@ static void onInput(const Event* ev, void* ud) {
 static void onExit(const Event* ev, void* ud) {
 	if (ev->type != EVENT_EXIT) return;
 	println("¡Ok!. Limpiando y cerrando...");
-	exit(EXIT_SUCCESS);
+}
+/* Callback para evento de cambio de resolucion*/
+static void onResize(const Event* ev, void *ud) {
+	if (ev->type == EVENT_RESIZE) {
+		const CliEvent* resizeEv = (const CliEvent*)ev;
+		println("Nuevo tamaño: %dx%d\n", resizeEv->volume.w, resizeEv->volume.h);
+	}
 }
 
 //	Main
 int main()
 {
 	init_utf16_std();
-	Coordinates coords{};
-	ScreenVolume volume = CliGetVolume();
 	CLIMenu mainMenu;
-	coords.x = 5;
-	coords.y = 2;
-	mainMenu.coords = coords;
-	mainMenu.volume = volume;
+	mainMenu.title = "Seleccione una opción";
+	mainMenu.opts = {
+		{ 1, "Opción 1" },
+		{ 2, "Opción 2" },
+		{ 3, "Opción 3" }
+	};
+	mainMenu.coords = {
+		.x = 5,
+		.y = 2
+	};
 	CliAddEventListener(onInput, &mainMenu);
 	CliAddEventListener(onExit, &mainMenu);
+	CliAddEventListener(onResize, NULL);
 	CliRunMenu(mainMenu);
 	return EXIT_SUCCESS;
 }
