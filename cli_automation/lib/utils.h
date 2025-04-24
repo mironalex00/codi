@@ -1,0 +1,10 @@
+#pragma once 
+//	Libs
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <wchar.h>
+#include <locale.h>
+//	Project
+#include "string/string.h"

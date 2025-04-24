@@ -3,7 +3,7 @@
 #
 
 # Agregue un origen al ejecutable de este proyecto.
-add_executable (cli_automation "cli_automation.cpp" "cli_automation.h" "cli_api.cpp"   "cli_api.h")
+add_executable (cli_automation "cli_automation.cpp" "cli_automation.h" "cli_api.cpp"   "cli_api.h" "cli_winapi.h" "cli_stdio.cpp" "lib/utils.h" "lib/string/string.h" "lib/string/string.cpp" "tests/UtilsUnitTest.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET cli_automation PROPERTY CXX_STANDARD 20)
