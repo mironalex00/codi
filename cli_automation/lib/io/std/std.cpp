@@ -1,4 +1,4 @@
-#include "cli_stdio.h"
+#include "./std.h"
 
 #pragma region Print base methods
 static void ps_printf(FILE* s, const char* fmt, ...)

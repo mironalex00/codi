@@ -1,5 +1,15 @@
-﻿#pragma once  
-#include "cli_winapi.h" 
+﻿#pragma once 
+// Project
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <string.h>
+#include <ctype.h>
+#include <locale.h>
+#include <errno.h>
+
+#include "cli_api.h" 
 
 #pragma region Struct Def  
 typedef struct PrintStream {

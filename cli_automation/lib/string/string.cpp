@@ -1,5 +1,5 @@
 #pragma once  
-#include <string.h>  
+#include <./string.h>  
 #include <corecrt_malloc.h>
 
 char* concat(const char* s1, const char* s2)  
